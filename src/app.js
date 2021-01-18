@@ -2,15 +2,51 @@
 //We've got some basic info about Karen's home
 //Debug the type of data provided
 //Return the types concatenated in a single variable
+function moreAboutHome(address, distance, neibours)
+{
+    var addr = typeof(address);
+    var dis = typeof(distance) ;
+    var nei = typeof(neibours)
+  
+    var result = addr + dis + nei;
+    return result;
+}
 
-//Progression 2:
+//Progression 2:  //Check here not completed
 //Check if the data given is of the right type
 //parents = String, noOfSiblings = Number, isNuclearFamily = Boolean
+function moreAboutKaren(parents, noOfSiblings, isNuclearFamily)
+{
+    var result  = "";
+    if(typeof(parents) == "string" || typeof(noOfSiblings) == "Number" || typeof(isNuclearFamily) == "boolean") 
+    {
+      return true;
+    }
+    else if(parents == null && noOfSiblings == 0 && isNuclearFamily == null)
+    {
+        return false;
+    }
+    else{
+        return false;
+    }
+   
+     //result = typeof(parents) + typeof(noOfSiblings) + typeof(isNuclearFamily);
+    // if(result == "StringNumberBoolean")
+    // {
+    //     return true;
+    // }
+   // return result;
+}
 
 //Progression 3:
 //Lily is suspicious about Karen's new friend
 //Karen tells her friend's age and even writes it down
 //Check which one those is not a number (NaN) and return that value
+function doesFriendExist()
+{
+
+}
+
 
 //Progression 4:
 //Lily gave Karen x sweets
