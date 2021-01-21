@@ -18,17 +18,22 @@ function moreAboutHome(address, distance, neibours)
 function moreAboutKaren(parents, noOfSiblings, isNuclearFamily)
 {
     var result  = "";
-    if(typeof(parents) == "string" || typeof(noOfSiblings) == "Number" || typeof(isNuclearFamily) == "boolean") 
-    {
-      return true;
-    }
-    else if(parents == null && noOfSiblings == 0 && isNuclearFamily == null)
+    if(arguments.length != 3)
     {
         return false;
     }
-    else{
-        return false;
+    else
+    {
+        //var parents = arguments[0]
+        if(typeof(arguments[0]) == "string" && typeof(arguments[1]) == "number" && typeof(arguments[2]) == "boolean") 
+        {
+          return true;
+        }
+        else{
+            return false;
+        }
     }
+   
    
      //result = typeof(parents) + typeof(noOfSiblings) + typeof(isNuclearFamily);
     // if(result == "StringNumberBoolean")
@@ -42,9 +47,34 @@ function moreAboutKaren(parents, noOfSiblings, isNuclearFamily)
 //Lily is suspicious about Karen's new friend
 //Karen tells her friend's age and even writes it down
 //Check which one those is not a number (NaN) and return that value
-function doesFriendExist()
+function doesFriendExist(ageInText, ageInNumber)
 {
-
+    if(ageInText == 'NaN' || ageInNumber == 'NaN')
+    {
+        return "NaN";
+    }
+    else if(isNaN(ageInText) || isNaN(ageInNumber))
+    {
+        return NaN;
+    }
+    // var x;
+    // if(typeof(ageInText) == "boolean" || typeof(ageInNumber) == "number")
+    // {
+    //     x = ageInText;
+    // }
+    // else if(typeof(ageInText) == "boolean" || typeof(ageInNumber) == "boolean")
+    // {
+    //     x = NaN;
+    // }
+    // else if(typeof(ageInText) == "string" || typeof(ageInNumber) == "boolean")
+    // {
+    //     x = ageInText;
+    // }
+    // else if(ageInText == " " || typeof(ageInNumber) == "boolean")
+    // {
+    //     x = ageInNumber;
+    // }
+    // return x;
 }
 
 
@@ -54,10 +84,44 @@ function doesFriendExist()
 //On her way to the river, she ate another z sweets every n meters travelled
 //Her friend divided the remaining sweets into 2 parts for each
 //How many sweets did her friend get to eat?
+function sweetTooth(totalNoOfSweets,sweetsConsumedByKaren,sweetsConsumedInNMeters,metersToTravel )
+{
+
+    if(arguments.length == 0 || typeof(totalNoOfSweets) != "number" || typeof(sweetsConsumedByKaren) != "number" || typeof(sweetsConsumedInNMeters) != "number"  || typeof(metersToTravel) != "number") 
+    {
+      return "No sweets for Karen's friend";
+    }
+    else if(totalNoOfSweets == 0 || sweetsConsumedByKaren == 0 || sweetsConsumedInNMeters == 0 || metersToTravel == 0)
+    {
+        return 0;
+    }
+    else{
+        if(sweetsConsumedByKaren * sweetsConsumedInNMeters > metersToTravel)
+        {
+            return 0;
+        }
+    
+    }
+}
 
 //Progression 5:
 //As Lily moves closer, it gets colder. She checks the temperature on her mobile
 //It only shows in fahrenheit. Convert the data to celsius and return it.
+function convertToCelsius(temperature)
+{
+    if(isNaN(temperature) || typeof(temperature) == 'string' || typeof(temperature) == 'object')
+    {
+        return "Technical Error!";
+    }
+    else{
+    var farTemp = temperature;
+    var celTemp = 0;
+
+    celTemp = (farTemp - 32) * 5/9;
+    return celTemp;
+    }
+    // convertToCelsius(undefined);
+}
 
 //Progression 6:
 //Lily can now do multiple things to deal with this
@@ -66,6 +130,27 @@ function doesFriendExist()
 //3. Counsel her daughter herself
 //4. Lock her daughter in her room
 //Given a value, return which of these above actions Lily would take
+function aDifficultChoice(x)
+{
+    var solution = "";
+        switch (x)
+        {
+            case -1:
+                solution = "Break down and give up all hope";
+                break;
+            case 1:
+                solution = "Take her daughter to a doctor";
+                break;
+              case undefined:
+                solution = "Wasn't able to decide";
+                break;
+              case "I give up":
+                solution = "Refused to do anything for Karen";
+                break;
+        }
+    return solution;
+}
+
 
 //Progression 7:
 //Lily realized that she'd hurt her daughter
@@ -75,3 +160,7 @@ function doesFriendExist()
 //Take all of Lily's strategies and concatenate them to a single var
 //Seperate the strategies by a single space
 //Return the length of the complete strategy
+function consoleKaren(strategies)
+{
+
+}
