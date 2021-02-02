@@ -4,11 +4,7 @@
 //Return the types concatenated in a single variable
 function moreAboutHome(address, distance, neibours)
 {
-    var addr = typeof(address);
-    var dis = typeof(distance) ;
-    var nei = typeof(neibours)
-  
-    var result = addr + dis + nei;
+    var result = typeof(address) + typeof(distance) + typeof(neibours);
     return result;
 }
 
@@ -84,23 +80,34 @@ function doesFriendExist(ageInText, ageInNumber)
 //On her way to the river, she ate another z sweets every n meters travelled
 //Her friend divided the remaining sweets into 2 parts for each
 //How many sweets did her friend get to eat?
-function sweetTooth(totalNoOfSweets,sweetsConsumedByKaren,sweetsConsumedInNMeters,metersToTravel )
+function sweetTooth(totalNoOfSweets,sweetsConsumedByKaren,sweetsConsumedInNMeters,metersToTravel)
 {
-
-    if(arguments.length == 0 || typeof(totalNoOfSweets) != "number" || typeof(sweetsConsumedByKaren) != "number" || typeof(sweetsConsumedInNMeters) != "number"  || typeof(metersToTravel) != "number") 
+    if(arguments.length == 0)  //when no parameters
     {
-      return "No sweets for Karen's friend";
+        return "No sweets for Karen's friend";
     }
-    else if(totalNoOfSweets == 0 || sweetsConsumedByKaren == 0 || sweetsConsumedInNMeters == 0 || metersToTravel == 0)
+    else
     {
-        return 0;
-    }
-    else{
+        var nCount = 0;
+        for(let i = 0; i< arguments.length ;i++)
+        {
+            if(isNaN(arguments[i]))  //if any one not a number
+            {
+                return "No sweets for Karen's friend";
+            }
+            if(arguments[i] == 0)
+            {
+                nCount ++;  // if all parameter are 0 count increase to length of parameter
+            }
+        }
+        if(nCount == (arguments.length))
+        {
+            return 0;
+        }
         if(sweetsConsumedByKaren * sweetsConsumedInNMeters > metersToTravel)
         {
             return 0;
         }
-    
     }
 }
 
@@ -160,7 +167,3 @@ function aDifficultChoice(x)
 //Take all of Lily's strategies and concatenate them to a single var
 //Seperate the strategies by a single space
 //Return the length of the complete strategy
-function consoleKaren(strategies)
-{
-
-}
